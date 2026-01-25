@@ -39,19 +39,19 @@
   </footer>
 <script scr="js/main.js"></script>
 <script>
-  const menuToggle = document.querySelector('.menu-toggle');
+  const menuBtn = document.querySelector('.menu-Btn');
   const sidebar = document.getElementById('sidebar');
 
-  if (menuToggle && sidebar) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = sidebar.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded',isOpen);
+  if (menuBtn && sidebar) {
+    menuBtn.addEventListener('click', () => {
+      const isOpen = sidebar.classList.Btn('open');
+      menuBtn.setAttribute('aria-expanded',isOpen);
     });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && sidebar.classList.contains('open)) {
         sidebar.classList.remove('open);
-        menuToggle.setAttribute('aria-expanded', 'false');
+        menuBtn.setAttribute('aria-expanded', 'false');
       }
     });
   } else {
@@ -63,7 +63,7 @@
   const sidebar = document.querySelector(".sidebar-nav");
 
   menuBtn.addEventListener("click", function () {
-    sidebar.classList.toggle("open");
+    sidebar.classList.btn("open");
   });
 </script>
 <script>
@@ -71,9 +71,9 @@
   const sidebar = document.querySelector(".sidebar-nav");
   const overlay = document.querySelector(".overlay");
 
-  menubtn.addEventlistener("click", () => {
-    sidebar.classList.toggle("open");
-    overlay.classList.toggle("active");
+  menuBtn.addEventlistener("click", () => {
+    sidebar.classList.btn("open");
+    overlay.classList.btn("active");
   });
 </script>
 <script>
