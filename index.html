@@ -12,7 +12,7 @@
       <h1>Homestreet</h1>
     </div>
     <button
-      class="menu-toggle"
+      class="menu-btn"
       type="button"
       aria-label="Open navigation menu"
       aria-expanded="false"
@@ -20,6 +20,7 @@
       MENU
     </button>
   </header>
+  <div class="overlay"></div>
     <nav id="sidebar"class="sidebar-nav" aria-label="Sidebar navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -63,6 +64,22 @@
 
   menuBtn.addEventListener("click", function () {
     sidebar.classList.toggle("open");
+  });
+</script>
+<script>
+  const menuBtn = document.querySelector(".menu-btn");
+  const sidebar = document.querySelector(".sidebar-nav");
+  const overlay = document.querySelector(".overlay");
+
+  menubtn.addEventlistener("click", () => {
+    sidebar.classList.toggle("open");
+    overlay.classList.toggle("active");
+  });
+</script>
+<script>
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("active");
   });
 </script>
 </body>
