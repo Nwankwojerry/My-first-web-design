@@ -405,6 +405,8 @@ button {
     padding: 0;
     background: transparent;
     border: 0;
+    max-height: none;
+    overflow-y: visible;
   }
 
   .site-nav__list {
