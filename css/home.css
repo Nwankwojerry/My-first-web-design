@@ -1,12 +1,12 @@
 :root {
   --color-bg: #f0f8ff;
-  --color-surface: rgba(17, 17, 17,0.92);
+  --color-surface: rgba(17, 17, 17, 0.92);
   --color-surface-soft: rgba(255, 255, 255, 0.08);
   --color-surface-card: rgba(255, 255, 255, 0.78);
   --color-text: #ffffff;
   --color--text-dark: #111111;
   --color--text-muted: #c9c9c9;
-  --color-accent: 336699;
+  --color-accent: #336699;
   --color-accent-2: #663366;
   --color-border: rgba(255, 255, 255, 0.14);
 
@@ -33,6 +33,7 @@
 *::after {
   box-sizing: border-box;
 }
+
 html {
   font-size: 100%;
   scroll-behavior: smooth;
@@ -184,11 +185,11 @@ button {
   justify-content: space-between;
   gap: 0.5rem;
   padding: 0.85rem 1rem;
-  border-radius: var (--radius-sm);
+  border-radius: var(--radius-sm);
   border: 1px solid transparent;
   background: transparent;
-  color: var (--color-text);
-  transition: background var (--transition), transform var(--transition), border-color var(--transition), color var(transition);
+  color: var(--color-text);
+  transition: background var(--transition), transform var(--transition), border-color var(--transition), color var(--transition);
 }
 
 .site-nav__link:hover,
@@ -240,7 +241,7 @@ button {
   gap: 0.5rem;
 }
 
-.main-cotent {
+.main-content {
   width: min(100%, var(--max-width));
   margin: 0 auto;
   padding: 1.25rem 1rem 3rem;
@@ -319,7 +320,7 @@ button {
 }
 
 .site-footer__social {
-  displau: grid;
+  display: grid;
   gap: 0.75rem;
 }
 
@@ -345,12 +346,12 @@ button {
 }
 
 .form_group {
-  margin-button: 1rem;
+  margin-bottom: 1rem;
 }
 
 .form_label {
   display: block;
-  margin-buttom: 0.5rem;
+  margin-bottom: 0.5rem;
   font-weight: 700;
   color: #222;
 }
@@ -366,7 +367,7 @@ button {
 
 .form__input:focus,
 .form__textarea:focus {
-  border-coor: var(--color-accent);
+  border-color: var(--color-accent);
   outline: none;
 }
 
@@ -378,7 +379,7 @@ button {
   background: var(--color-accent-2);
   color: #fff;
   border: 0;
-  border-radius: 0.5rem;;
+  border-radius: 0.5rem;
   transition: transform var(--transition), opacity var(--transition), background var(--transition);
 }
 
@@ -422,11 +423,12 @@ button {
     padding: 0.75rem;
     background: rgba(17, 17, 17, 0.98);
     border: 1px solid var(--color-border);
-    border-radius: var(--shadow-md);
+    border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
     display: none;
     z-index: 1200;
   }
+
   .site-nav__item--has-submenu:hover > .site-nav__submenu,
   .site-nav__item--has-submenu:focus-within > .site-nav__submenu {
     display: grid;
@@ -505,12 +507,13 @@ button {
 
 .site-footer__social-link--github {
   background: #333;
-  color: fff;
+  color: #fff;
   border-color: #555;
 }
+
 .site-footer__social-link--tiktok {
   background: #000;
   color: #ff0050;
-  border color: #333;
+  border-color: #333;
   text-shadow: 1px 1px 0 #00f2ea;
 }

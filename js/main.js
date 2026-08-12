@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-document.querySelectorAll(".site-nav__link, .site-nav__sublink, .site-nav__footer-link, .site-footer__link").forEach((link) => {
+  document.querySelectorAll(".site-nav__link, .site-nav__sublink, .site-nav__footer-link, .site-footer__link").forEach((link) => {
     link.addEventListener("click", () => {
       nav.classList.remove("site-nav--open");
       toggleBtn.setAttribute("aria-expanded", "false");
@@ -31,9 +31,9 @@ document.querySelectorAll(".site-nav__link, .site-nav__sublink, .site-nav__foote
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  document.querySelectorAll(".site-footer__social-link").forEach(link) => {
-    link.addEventListener("click", (e) => {
-      console.log(`User clicked social link: ${e.Target.innerText}`);
+  document.querySelectorAll(".site-footer__social-link").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      console.log(`User clicked social link: ${event.target.textContent.trim()}`);
     });
   });
 
