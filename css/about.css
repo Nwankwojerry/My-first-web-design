@@ -93,7 +93,7 @@ header {
   display: block;
   width: 100%;
   min-height: 3px;
-  height: 3px
+  height: 3px;
   background-color: #ffffff !important;
   border-radius: 3px;
   transition: all 0.3s ease;

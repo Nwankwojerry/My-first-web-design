@@ -1,12 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const nav = document.querySelector(".site-nav");
-  const toggleBtn = document.querySelector(".site-header__toggle");
+  const nav = document.querySelector(".site-nav") || document.querySelector(".sidebar-nav");
+  const toggleBtn = document.querySelector(".site-header__toggle") || document.querySelector(".menu-btn");
+  const overlay = document.querySelector(".overlay");
 
   if (!nav || !toggleBtn) return;
 
+  const closeMenu = () => {
+    nav.classList.remove("site-nav--open", "open");
+    if (overlay) overlay.classList.remove("active");
+    toggleBtn.setAttribute("aria-expanded", "false");
+  };
+
+  const openMenu = () => {
+    nav.classList.add(nav.classList.contains("sidebar-nav") ? "open" : "site-nav--open");
+    if (overlay) overlay.classList.add("active");
+    toggleBtn.setAttribute("aria-expanded", "true");
+  };
+
   toggleBtn.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("site-nav--open");
-    toggleBtn.setAttribute("aria-expanded", String(isOpen));
+    const willOpen = !nav.classList.contains("site-nav--open") && !nav.classList.contains("open");
+    if (willOpen) {
+      openMenu();
+    } else {
+      closeMenu();
+    }
   });
 
   document.querySelectorAll(".site-nav__button").forEach((button) => {
@@ -19,12 +36,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  document.querySelectorAll(".site-nav__link, .site-nav__sublink, .site-nav__footer-link, .site-footer__link").forEach((link) => {
+  document.querySelectorAll(".site-nav__link, .site-nav__sublink, .site-nav__footer-link, .site-footer__link, .sidebar-nav a").forEach((link) => {
     link.addEventListener("click", () => {
-      nav.classList.remove("site-nav--open");
-      toggleBtn.setAttribute("aria-expanded", "false");
+      closeMenu();
     });
   });
+
+  if (overlay) {
+    overlay.addEventListener("click", closeMenu);
+  }
 
   const yearSpan = document.getElementById("year");
   if (yearSpan) {
