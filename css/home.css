@@ -1,13 +1,13 @@
 :root {
-  --color-bg: #f0f8ff;
-  --color-surface: rgba(17, 17, 17, 0.92);
+  --color-bg: #F1F5F9;
+  --color-surface: #0F172A;
   --color-surface-soft: rgba(255, 255, 255, 0.08);
-  --color-surface-card: rgba(255, 255, 255, 0.78);
+  --color-surface-card: #FFFFFF;
   --color-text: #ffffff;
-  --color--text-dark: #111111;
-  --color--text-muted: #c9c9c9;
-  --color-accent: #336699;
-  --color-accent-2: #663366;
+  --color--text-dark: #0F172A;
+  --color--text-muted: #64748B;
+  --color-accent: #2563EB;
+  --color-accent-2: #2563EB;
   --color-border: rgba(255, 255, 255, 0.14);
 
   --space-1: 0.5rem;
@@ -43,7 +43,7 @@ body.page {
   margin: 0;
   font-family: Arial, sans-serif;
   background:
-    radial-gradient(circle at top, rgba(51, 102, 153, 0.12), transparent 35%),
+    radial-gradient(circle at top, rgba(37, 99, 235, 0.08), transparent 35%),
     var(--color-bg);
   color: var(--color-text-dark);
   line-height: 1.6;
@@ -89,7 +89,7 @@ button {
 }
 
 .site-header {
-  background: rgba(17, 17, 17, 0.9);
+  background: rgba(15, 23, 42, 0.98);
   box-shadow: var(--shadow-sm);
   position: fixed;
   z-index: 1100;
@@ -124,8 +124,8 @@ button {
   display: grid;
   place-items: center;
   border-radius: 0.75rem;
-  background: linear-gradient(135deg, rgba(51, 102, 153, 0.15), rgba(51, 102, 153, 0.25));
-  border: 1.5px solid rgba(51, 102, 153, 0.35);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(37, 99, 235, 0.25));
+  border: 1.5px solid rgba(37, 99, 235, 0.35);
   color: var(--color-accent);
   transition: all var(--transition);
   flex-shrink: 0;
@@ -138,10 +138,10 @@ button {
 }
 
 .site-header__brand:hover .site-header__logo {
-  background: linear-gradient(135deg, rgba(51, 102, 153, 0.25), rgba(51, 102, 153, 0.35));
-  border-color: rgba(51, 102, 153, 0.55);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.25), rgba(37, 99, 235, 0.35));
+  border-color: rgba(37, 99, 235, 0.55);
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(51, 102, 153, 0.15);
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.15);
 }
 
 .site-header__name {
@@ -170,7 +170,7 @@ button {
   position: absolute;
   inset: 100% 0 auto 0;
   display: none;
-  background: rgba(17, 17, 17, 0.96);
+  background: rgba(15, 23, 42, 0.98);
   padding: 1rem;
   border-bottom: 1px solid var(--color-border);
   max-height: 70vh;
@@ -220,8 +220,8 @@ button {
 }
 
 .site-nav__link--active {
-  background: rgba(51, 102, 153, 0.35);
-  border-color: rgba(51, 102, 153, 0.45);
+  background: rgba(37, 99, 235, 0.2);
+  border-color: rgba(37, 99, 235, 0.5);
 }
 
 .site-nav__button {
@@ -298,12 +298,12 @@ button {
 .hero__text {
   margin: 0 0 1rem;
   max-width: 65ch;
-  color: #333;
+  color: #64748B;
 }
 
 .site-footer {
   margin-top: 3rem;
-  background: rgba(17, 17, 17, 0.98);
+  background: rgba(15, 23, 42, 0.98);
   color: var(--color-text-muted);
   border-top: 1px solid var(--color-border);
 }
@@ -333,7 +333,7 @@ button {
 }
 
 .site-footer__sep {
-  color: #666;
+  color: #64748B;
   margin: 0 0.5rem;
 }
 
@@ -344,18 +344,18 @@ button {
 
 .site-footer__label {
   font-size: 0.88rem;
-  color: #8f8f8f;
+  color: #64748B;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
 .site-footer__copy {
   font-size: 0.8rem;
-  color: #777;
+  color: #64748B;
 }
 
 .form {
-  background: rgba(255, 255, 255, 0.8);
+  background: #FFFFFF;
   padding: 1.25rem;
   max-width: 31.25rem;
   border-radius: var(--radius-md);
@@ -371,7 +371,7 @@ button {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 700;
-  color: #222;
+  color: #0F172A;
 }
 
 .form__input,
@@ -380,7 +380,7 @@ button {
   padding: 0.75rem 0.9rem;
   border-radius: 0.5rem;
   background: #fff;
-  color: #111;
+  color: #0F172A;
 }
 
 .form__input:focus,
@@ -403,7 +403,7 @@ button {
 
 .btn:hover {
   transform: translateY(-1px);
-  background: #550055;
+  background: #1d4ed8;
 }
 
 @media (min-width: 48rem) {
@@ -441,7 +441,7 @@ button {
     left: 0;
     min-width: 16rem;
     padding: 0.75rem;
-    background: rgba(17, 17, 17, 0.98);
+    background: rgba(17, 24, 39, 0.98);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
