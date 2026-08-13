@@ -57,5 +57,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* Card Reveal Animations on Scroll */
+  if ('IntersectionObserver' in window) {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInUp 0.6s ease-out';
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.hero__content, article, .card').forEach((element) => {
+      element.style.opacity = '0';
+      revealObserver.observe(element);
+    });
+  }
+
   console.log("JS is working");
 });

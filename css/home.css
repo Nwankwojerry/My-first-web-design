@@ -708,3 +708,223 @@ main.main-content form label textarea {
   color: #FFFFFF;
   border-color: #2563EB;
 }
+
+/* ========================================
+   KEYFRAME ANIMATIONS
+   ======================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   PAGE LOAD ANIMATIONS
+   ======================================== */
+
+body.page {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.site-header {
+  animation: fadeInDown 0.5s ease-out;
+}
+
+.hero__content {
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.hero__eyebrow {
+  animation: fadeInUp 0.5s ease-out 0.15s both;
+}
+
+.hero__title {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.hero__text {
+  animation: fadeInUp 0.5s ease-out 0.25s both;
+}
+
+.site-footer {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* ========================================
+   NAVIGATION ANIMATIONS
+   ======================================== */
+
+.site-nav {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.site-nav__list {
+  animation: fadeIn 0.4s ease-out 0.05s both;
+}
+
+.site-nav__item {
+  animation: fadeInUp 0.4s ease-out;
+  animation-fill-mode: both;
+}
+
+.site-nav__item:nth-child(1) { animation-delay: 0.05s; }
+.site-nav__item:nth-child(2) { animation-delay: 0.1s; }
+.site-nav__item:nth-child(3) { animation-delay: 0.15s; }
+.site-nav__item:nth-child(4) { animation-delay: 0.2s; }
+.site-nav__item:nth-child(5) { animation-delay: 0.25s; }
+.site-nav__item:nth-child(6) { animation-delay: 0.3s; }
+.site-nav__item:nth-child(7) { animation-delay: 0.35s; }
+.site-nav__item:nth-child(n+8) { animation-delay: 0.4s; }
+
+.site-nav__submenu {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.site-nav__submenu--open .site-nav__sublink {
+  animation: fadeInUp 0.3s ease-out;
+  animation-fill-mode: both;
+}
+
+.site-nav__submenu--open .site-nav__sublink:nth-child(1) { animation-delay: 0.05s; }
+.site-nav__submenu--open .site-nav__sublink:nth-child(2) { animation-delay: 0.1s; }
+.site-nav__submenu--open .site-nav__sublink:nth-child(3) { animation-delay: 0.15s; }
+.site-nav__submenu--open .site-nav__sublink:nth-child(n+4) { animation-delay: 0.2s; }
+
+/* ========================================
+   DROPDOWN / SUBMENU ANIMATIONS
+   ======================================== */
+
+@media (min-width: 48rem) {
+  .site-nav__submenu {
+    animation: none;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .site-nav__item--has-submenu:hover .site-nav__submenu,
+  .site-nav__item--has-submenu:focus-within .site-nav__submenu {
+    opacity: 1;
+    animation: fadeInDown 0.3s ease-out;
+  }
+}
+
+/* ========================================
+   LINK & ICON ANIMATIONS
+   ======================================== */
+
+.site-footer__link {
+  position: relative;
+  transition: color 300ms ease;
+}
+
+.site-footer__link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #2563EB;
+  transition: width 300ms ease;
+}
+
+.site-footer__link:hover::after {
+  width: 100%;
+}
+
+.site-nav__link,
+.site-nav__button,
+.site-nav__sublink {
+  transition: all 300ms ease;
+}
+
+/* ========================================
+   BUTTON MICRO-INTERACTIONS
+   ======================================== */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:active::before {
+  width: 300px;
+  height: 300px;
+  transition: width 0s, height 0s;
+}
+
+/* ========================================
+   FORM INPUT FOCUS ANIMATION
+   ======================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+  transition: all 200ms ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+  animation: none;
+}
