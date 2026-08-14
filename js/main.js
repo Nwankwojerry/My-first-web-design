@@ -73,8 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }, observerOptions);
 
-    document.querySelectorAll('.hero__content, article, .card').forEach((element) => {
-      element.style.opacity = '0';
+    document.querySelectorAll('article, .card').forEach((element) => {
       revealObserver.observe(element);
     });
   }
