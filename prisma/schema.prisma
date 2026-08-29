@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum ArticleStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model Article {
+  id          Int           @id @default(autoincrement())
+  title       String
+  slug        String        @unique
+  excerpt     String?
+  content     String
+  status      ArticleStatus @default(DRAFT)
+  publishedAt DateTime?
+  featured    Boolean       @default(false)
+  authorId    Int?
+  categoryId  Int?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  author      Author?       @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  category    Category?     @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  tags        ArticleTag[]
+  media       Media[]
+
+  @@index([status, publishedAt])
+  @@index([categoryId])
+  @@index([authorId])
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String
+  slug      String    @unique
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  articles  Article[]
+}
+
+model Author {
+  id        Int       @id @default(autoincrement())
+  name      String
+  slug      String    @unique
+  bio       String?
+  image     String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  articles  Article[]
+}
+
+model Tag {
+  id        Int          @id @default(autoincrement())
+  name      String
+  slug      String       @unique
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  articles  ArticleTag[]
+}
+
+model ArticleTag {
+  articleId Int
+  tagId     Int
+  article   Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  @@id([articleId, tagId])
+  @@index([tagId])
+}
+
+model Media {
+  id        Int      @id @default(autoincrement())
+  articleId Int
+  url       String
+  altText   String?
+  caption   String?
+  credit    String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  article   Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  @@index([articleId, sortOrder])
+}
