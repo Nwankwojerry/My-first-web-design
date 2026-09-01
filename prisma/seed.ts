@@ -1,8 +1,11 @@
-import "dotenv/config";
+import { config } from "dotenv";
 import fs from "node:fs";
 import path from "node:path";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "../app/generated/prisma/client";
+
+config({ path: ".env.local" });
+config({ path: ".env" });
 
 const url = process.env.DATABASE_URL;
 if (!url) throw new Error("DATABASE_URL is required to seed Homestreet.");
@@ -45,7 +48,7 @@ async function main() {
     await prisma.article.create({ data: { slug: item.slug, title: item.title, excerpt: item.excerpt, content: item.content, status: "PUBLISHED", publishedAt: item.publishedAt, featured: item.slug === "feature-ai", categoryId: category?.id ?? null, tags: { create: tagLinks }, media: { create: item.media } } });
     console.log(`Seeded ${item.slug}`);
   }
-  console.log(`Seed complete: ${await prisma.article.count()} articles`);
+  console.log(`Seed complete: ${await prisma.article.count()}`);
 }
 
 main().catch(e => { console.error(e); process.exitCode = 1; }).finally(() => prisma.$disconnect());
