@@ -23,7 +23,9 @@ function parse(file: string) {
   const excerpt = decode(first(/<p class="article-deck">([\s\S]*?)<\/p>/i, html));
   const category = decode(first(/<div class="article-meta">[\s\S]*?<span>([^<]+)<\/span>/i, html));
   const published = first(/<time datetime="([^"]+)"/i, html);
-  const body = first(/<div class="article-body">([\s\S]*?)<\/div>/i, html).replace(/<div class="article-tags">[\s\S]*?<\/div>/i, "").trim();
+  const body = first(/<div class="article-body">([\s\S]*?)<footer class="related-stories">/i, html)
+    .replace(/<div class="article-tags">[\s\S]*?<\/div>\s*$/i, "")
+    .trim();
   const tags = [...new Set(all(/<span class="article-tag">([\s\S]*?)<\/span>/gi, html).map(decode))];
   const media = all(/<figure class="article-figure">([\s\S]*?)<\/figure>/gi, html).map((figure, i) => ({
     url: first(/<img[^>]+src="([^"]+)"/i, figure).replace(/^\.\.\//, "/"),
